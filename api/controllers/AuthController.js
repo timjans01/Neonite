@@ -61,6 +61,19 @@ module.exports = {
 				account.accountId = req.body.exchange_code;
 				break;
 
+			case "external_auth":
+				NeoLog.warn("Cannot Grab Account Id from body")
+				if(config.bEnableOverride === false){
+					NeoLog.Log("Username Override is disabled, Assigning Default User")
+					account.displayName = "NeoniteUser";
+					account.accountId = "NeoniteUser";
+				}
+				else{
+					account.displayName = config.username
+					account.accountId = config.username
+				}
+				break;
+
 			default:
 				throw new ApiException(errors.com.epicgames.common.oauth.unsupported_grant_type).with(req.body.grant_type)
 		}
