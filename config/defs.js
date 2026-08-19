@@ -786,7 +786,7 @@ async function compareAndUpdateKeychain() {
                 keychainArray.push(keys.keychain);
                 NeoLog.Debug(`New Keychain added: ${keys.name}(${keys.size.formatted}, ${keys.fileCount} Files)`)
             }
-        }       
+        }
         keychain.push(...keychainArray);
 
         fs.writeFileSync("./responses/keychain.json", JSON.stringify(keychain, null, 2));
@@ -1019,6 +1019,10 @@ const Backgrounds = (version, versionGlobal, backgrounds, content) => {
             stage: "season4041",
             backgroundImage: "http://localhost:5595/cdn2-unrealengine/mkart-fnbr-smarttuna-lobbybg-withfx-final-4k-4703x2477-81899f28574e.jpg"
         },
+        "41.30": {
+            stage: "defaultnotris",
+            backgroundImage: "http://localhost:5595/cdn2-unrealengine/mkart-fnbr-41-30-lobbybg-final-4k-3840x2022-38116a092515.jpg"
+        },
     });
 
     const versionGlobalBackgrounds = Object.create({
@@ -1112,6 +1116,10 @@ const Backgrounds = (version, versionGlobal, backgrounds, content) => {
         40: {
             stage: "season4000",
             backgroundImage: "http://localhost:5595/cdn2-unrealengine/mkart-fnbr-ch7s2-lobbybg-final-4k-4096x2048-4572ba5a2d95.jpg"
+        },
+        41: {
+            stage: "season4100",
+            backgroundImage: "http://localhost:5595/cdn2-unrealengine/ch7s3-lobby-final-4096x2048-386aa58f2d9f.jpg"
         }
     });
     const versionBackground = versionBackgrounds[version] ?? versionGlobalBackgrounds[versionGlobal];
