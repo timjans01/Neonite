@@ -49,6 +49,9 @@ module.exports = {
         break;
       case "external_auth":
         JWTdecode = jsonwebtoken.decode(req.body["external_auth_token"])
+        if(!JWTdecode["dn"]){
+          JWTdecode["dn"] = JWTdecode["act"]["eaid"]
+        }
         token = oauthTokenV1_externalAuth(req.body["nonce"], req.body["deployment_id"], JWTdecode["dn"])
         idToken = oauthTokenV1_idToken(JWTdecode["dn"])
         res.json({
